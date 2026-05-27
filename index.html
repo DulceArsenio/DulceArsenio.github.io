@@ -2,809 +2,238 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Dulce Arsenio | Data & Analytics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    :root {
-      --bg: #050510;
-      --bg-alt: #0b0b1a;
-      --card: #111129;
-      --accent: #a855f7;
-      --accent-soft: rgba(168, 85, 247, 0.15);
-      --accent-2: #22c55e;
-      --text: #f9fafb;
-      --muted: #9ca3af;
-      --border: #1f2937;
-      --shadow: 0 18px 45px rgba(0, 0, 0, 0.65);
-      --radius-lg: 18px;
-      --radius-md: 12px;
-      --radius-pill: 999px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1f2937 0, #020617 45%, #000 100%);
-      color: var(--text);
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .page {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 24px 16px 64px;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 32px;
-    }
-
-    .logo {
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .logo-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 30%, #f9fafb, var(--accent));
-      box-shadow: 0 0 12px var(--accent);
-    }
-
-    nav {
-      display: flex;
-      gap: 18px;
-      font-size: 0.9rem;
-    }
-
-    nav a {
-      color: var(--muted);
-      position: relative;
-      padding-bottom: 4px;
-    }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      transition: width 0.2s ease-out;
-    }
-
-    nav a:hover {
-      color: var(--text);
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    /* Hero */
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
-      gap: 32px;
-      align-items: center;
-      margin-bottom: 40px;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 4px 10px;
-      border-radius: var(--radius-pill);
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.8rem;
-      margin-bottom: 14px;
-    }
-
-    .hero-tag span {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.75rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.1rem, 4vw, 2.7rem);
-      line-height: 1.15;
-      margin-bottom: 10px;
-    }
-
-    .hero h1 span {
-      background: linear-gradient(120deg, var(--accent), var(--accent-2));
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero-sub {
-      color: var(--muted);
-      font-size: 0.98rem;
-      max-width: 520px;
-      margin-bottom: 18px;
-    }
-
-    .hero-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 22px;
-    }
-
-    .pill {
-      font-size: 0.78rem;
-      padding: 4px 10px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      color: var(--muted);
-      background: rgba(15, 23, 42, 0.8);
-    }
-
-    .pill-strong {
-      border-color: transparent;
-      background: linear-gradient(120deg, var(--accent-soft), rgba(34, 197, 94, 0.18));
-      color: #e5e7eb;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .btn {
-      border-radius: var(--radius-pill);
-      padding: 8px 18px;
-      font-size: 0.9rem;
-      border: 1px solid transparent;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.12s ease-out;
-    }
-
-    .btn-primary {
-      background: linear-gradient(120deg, var(--accent), var(--accent-2));
-      color: #020617;
-      font-weight: 600;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.8);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.95);
-    }
-
-    .btn-ghost {
-      background: rgba(15, 23, 42, 0.9);
-      border-color: var(--border);
-      color: var(--muted);
-    }
-
-    .btn-ghost:hover {
-      background: rgba(15, 23, 42, 1);
-      color: var(--text);
-    }
-
-    .hero-right {
-      background: radial-gradient(circle at top, rgba(168, 85, 247, 0.18), transparent 55%),
-                  radial-gradient(circle at bottom, rgba(34, 197, 94, 0.18), transparent 55%);
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      padding: 18px 18px 16px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card {
-      background: rgba(15, 23, 42, 0.96);
-      border-radius: var(--radius-md);
-      padding: 16px 16px 14px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      backdrop-filter: blur(10px);
-    }
-
-    .hero-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .hero-card-title {
-      font-weight: 600;
-      color: #e5e7eb;
-      font-size: 0.9rem;
-    }
-
-    .hero-card-badges {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .badge {
-      font-size: 0.7rem;
-      padding: 2px 8px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      color: var(--muted);
-    }
-
-    .badge-strong {
-      border-color: transparent;
-      background: rgba(34, 197, 94, 0.16);
-      color: #bbf7d0;
-    }
-
-    .hero-card-body {
-      display: grid;
-      grid-template-columns: 1.2fr 1.4fr;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .hero-avatar {
-      width: 90px;
-      height: 90px;
-      border-radius: 999px;
-      border: 2px solid rgba(148, 163, 184, 0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.1rem;
-      background: radial-gradient(circle at 30% 20%, #f9fafb, #1f2937);
-      color: #111827;
-      box-shadow: 0 0 25px rgba(15, 23, 42, 0.9);
-    }
-
-    .hero-meta {
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    .hero-meta strong {
-      color: #e5e7eb;
-    }
-
-    .hero-meta-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 6px 10px;
-      margin-top: 8px;
-    }
-
-    .hero-meta-pill {
-      padding: 4px 8px;
-      border-radius: var(--radius-pill);
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      font-size: 0.7rem;
-      color: var(--muted);
-    }
-
-    /* Sections */
-    section {
-      margin-bottom: 40px;
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .section-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
-
-    .section-sub {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 14px;
-    }
-
-    .skill-card {
-      background: var(--bg-alt);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border);
-      padding: 12px 12px 10px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.7);
-      font-size: 0.86rem;
-    }
-
-    .skill-card h3 {
-      font-size: 0.9rem;
-      margin-bottom: 4px;
-    }
-
-    .skill-tools {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-
-    .skill-body {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    /* Projects */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px;
-    }
-
-    .project-card {
-      background: var(--bg-alt);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border);
-      padding: 12px 12px 10px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.7);
-      font-size: 0.86rem;
-    }
-
-    .project-tag {
-      font-size: 0.7rem;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-
-    .project-card h3 {
-      font-size: 0.95rem;
-      margin-bottom: 4px;
-    }
-
-    .project-tech {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-
-    .project-body {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    /* About / Interests */
-    .about-card {
-      background: var(--bg-alt);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border);
-      padding: 14px 14px 12px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.7);
-      font-size: 0.86rem;
-      color: var(--muted);
-    }
-
-    .about-card p + p {
-      margin-top: 6px;
-    }
-
-    /* Contact */
-    .contact-card {
-      background: var(--bg-alt);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border);
-      padding: 14px 14px 12px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.7);
-      font-size: 0.86rem;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
-      gap: 14px;
-    }
-
-    .contact-text {
-      font-size: 0.84rem;
-      color: var(--muted);
-    }
-
-    .contact-text strong {
-      color: #e5e7eb;
-    }
-
-    form {
-      display: grid;
-      gap: 8px;
-      font-size: 0.8rem;
-    }
-
-    label {
-      color: var(--muted);
-      font-size: 0.78rem;
-    }
-
-    input,
-    textarea {
-      width: 100%;
-      padding: 7px 9px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: #020617;
-      color: var(--text);
-      font-family: inherit;
-      font-size: 0.8rem;
-    }
-
-    textarea {
-      min-height: 80px;
-      resize: vertical;
-    }
-
-    input:focus,
-    textarea:focus {
-      outline: 1px solid var(--accent);
-      border-color: var(--accent);
-    }
-
-    .contact-note {
-      font-size: 0.7rem;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-
-    footer {
-      margin-top: 32px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: var(--muted);
-    }
-
-    .footer-links a:hover {
-      color: var(--text);
-    }
-
-    @media (max-width: 800px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .hero {
-        grid-template-columns: 1fr;
-      }
-      .hero-right {
-        order: -1;
-      }
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <title>Dulce Arsenio — Data Analyst Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <div class="page">
-    <header>
-      <div class="logo">
-        <span class="logo-dot"></span>
-        DULCE ARSENIO
-      </div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
 
-    <main>
-      <!-- Hero -->
-      <section class="hero" id="top">
-        <div>
-          <div class="hero-tag">
-            <span>●</span>
-            Open to Data & Analytics opportunities
-          </div>
-          <h1>
-            Hi, I’m <span>Dulce</span><br />
-            Data & Analytics with a financial edge.
-          </h1>
-          <p class="hero-sub">
-            I combine hands‑on accounting experience with data analysis skills in Excel, Power BI, Python, and Sage
-            to turn messy information into clear, reliable insights that support confident decision‑making.
-          </p>
-          <div class="hero-pills">
-            <div class="pill pill-strong">Data analysis & reporting</div>
-            <div class="pill">Excel • Power BI • Python • Sage</div>
-            <div class="pill">Growth mindset & reliability</div>
-            <div class="pill">Customer accounts & reconciliations</div>
-          </div>
-          <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">
-              View my work →
-            </a>
-            <a href="#contact" class="btn btn-ghost">
-              Get in touch
-            </a>
-          </div>
-        </div>
+<!-- COLLAPSIBLE LEFT SIDEBAR -->
+<aside id="sidebar" class="fade-in" style="
+  position:fixed;left:-200px;top:0;height:100vh;width:200px;
+  background:#0b0c18;border-right:1px solid #1f2937;
+  display:flex;flex-direction:column;align-items:flex-start;
+  padding:20px;gap:20px;z-index:999;transition:0.3s;">
+  
+  <a href="#top" style="color:#a855f7;font-size:18px;">🏠 Home</a>
+  <a href="#about" style="color:#a855f7;font-size:18px;">👤 About</a>
+  <a href="#skills" style="color:#a855f7;font-size:18px;">📊 Skills</a>
+  <a href="#experience" style="color:#a855f7;font-size:18px;">💼 Experience</a>
+  <a href="#contact" style="color:#a855f7;font-size:18px;">✉️ Contact</a>
+</aside>
 
-        <aside class="hero-right">
-          <div class="hero-card">
-            <div class="hero-card-header">
-              <div>
-                <div class="hero-card-title">Data‑driven, detail‑orientated</div>
-                <div style="font-size:0.75rem;color:var(--muted);">
-                  Accounting background • Generation Data Analytics Pre‑Apprenticeship
-                </div>
-              </div>
-              <div class="hero-card-badges">
-                <span class="badge badge-strong">Growth mindset</span>
-                <span class="badge">Excel & Power BI</span>
-              </div>
-            </div>
-            <div class="hero-card-body">
-              <div class="hero-avatar">D</div>
-              <div class="hero-meta">
-                <strong>What I bring</strong>
-                <div class="hero-meta-grid">
-                  <div class="hero-meta-pill">Accurate reconciliations</div>
-                  <div class="hero-meta-pill">Clean, reliable datasets</div>
-                  <div class="hero-meta-pill">Analytical problem‑solving</div>
-                  <div class="hero-meta-pill">Calm under pressure</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </aside>
-      </section>
+<!-- SIDEBAR TOGGLE BUTTON -->
+<button id="sidebarToggle" style="
+  position:fixed;left:10px;top:20px;z-index:1000;
+  background:#141739;color:#fff;border:1px solid #2a2e55;
+  padding:8px 12px;border-radius:8px;cursor:pointer;">
+  ☰
+</button>
 
-      <!-- About / Interests -->
-      <section id="about">
-        <div class="section-header">
-          <h2 class="section-title">About</h2>
-          <p class="section-sub">Financial foundations, data‑driven mindset, and continuous improvement.</p>
-        </div>
-        <div class="about-card">
-          <p>
-            My professional foundation is in accounting and invoicing administration, where I managed customer accounts,
-            processed transactions, and maintained financial accuracy using Sage and Excel. Through Generation’s
-            8‑week Data Analytics Pre‑Apprenticeship, I’ve strengthened my skills in Excel, Power BI, Python, VS Code,
-            and GitHub, learning how to clean, analyse, and visualise data to support better decisions.
-          </p>
-          <p>
-            Beyond work, I apply analytical and commercial thinking by collecting and reselling figurines, using market
-            research, pricing analysis, and trend tracking to optimise sales. I’m inspired by puzzle‑based games and
-            Leonardo da Vinci‑style problem‑solving, and I’m motivated by a growth mindset, curiosity, and the drive to
-            keep improving.
-          </p>
-        </div>
-      </section>
+<!-- NAV -->
+<header class="nav fade-in" id="top">
+  <div class="brand">DULCE ARSENIO</div>
 
-      <!-- Skills -->
-      <section id="skills">
-        <div class="section-header">
-          <h2 class="section-title">Key skills</h2>
-          <p class="section-sub">Blending technical tools with accuracy, structure, and clear communication.</p>
-        </div>
-        <div class="skills-grid">
-          <article class="skill-card">
-            <h3>Detail‑orientated data analysis</h3>
-            <div class="skill-tools">Excel • Power BI • Sage</div>
-            <p class="skill-body">
-              Careful and methodical in cleaning, analysing, and visualising data (pivot tables, charts, dashboards),
-              and using Sage for managing financial records and reconciliations. Able to turn raw information into
-              actionable insights that support confident, well‑informed decisions.
-            </p>
-          </article>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-          <article class="skill-card">
-            <h3>Accurate processing & reconciliations</h3>
-            <div class="skill-tools">Sage • Excel</div>
-            <p class="skill-body">
-              Meticulous validation of financial data and dependable record‑keeping, ensuring accuracy and integrity.
-              Comfortable transforming transactional details into clear, structured outputs that strengthen
-              data‑driven decisions.
-            </p>
-          </article>
+  <button id="themeToggle" class="btn ghost" style="padding:6px 12px;font-size:14px;">
+    🌙
+  </button>
+</header>
 
-          <article class="skill-card">
-            <h3>Analytical & logical problem‑solving</h3>
-            <div class="skill-tools">Excel • Python • VS Code</div>
-            <p class="skill-body">
-              Calm, structured approach to understanding issues, resolving discrepancies, and improving processes using
-              clear reasoning and evidence‑based thinking. Experience exploring data with Python in VS Code and tracking
-              work with GitHub.
-            </p>
-          </article>
+<!-- HERO -->
+<section class="hero fade-in">
+  <div>
+    <div class="eyebrow">Data Analyst • Excel • Power BI • Python</div>
 
-          <article class="skill-card">
-            <h3>Communication & collaboration</h3>
-            <div class="skill-tools">PowerPoint • Teams • GitHub</div>
-            <p class="skill-body">
-              Professional, patient communication with managers, accountants, and customers, adapting tone and style to
-              different audiences. Comfortable presenting insights and collaborating on group tasks, including version
-              control and shared workspaces.
-            </p>
-          </article>
+    <h1>Hi, I’m <span class="accent">Dulce Arsenio</span></h1>
 
-          <article class="skill-card">
-            <h3>Growth mindset & learning</h3>
-            <div class="skill-tools">Excel • Power BI • Python • GitHub</div>
-            <p class="skill-body">
-              Curious and eager to learn new tools, explore new ideas, and ask thoughtful questions to understand how
-              systems and data connect. Demonstrated persistence and future orientation throughout intensive training.
-            </p>
-          </article>
+    <p class="subtitle">
+      <span style="display:flex;align-items:center;gap:8px;">📍 Manchester</span>
+      <span style="display:flex;align-items:center;gap:8px;margin-top:6px;">
+        ✉️ <a href="mailto:dulcearsenio777@gmail.com">dulcearsenio777@gmail.com</a>
+      </span>
+      <span style="display:flex;align-items:center;gap:8px;margin-top:6px;">
+        📞 +44 7990 697950
+      </span>
+      <span style="display:flex;align-items:center;gap:8px;margin-top:6px;">
+        🔗 <a href="https://www.linkedin.com/in/dulce-arsenio-650777225" target="_blank">LinkedIn</a>
+      </span>
+      <span style="display:flex;align-items:center;gap:8px;margin-top:6px;">
+        💻 <a href="https://github.com/DulceArsenio" target="_blank">GitHub</a>
+      </span>
+    </p>
 
-          <article class="skill-card">
-            <h3>Languages & time management</h3>
-            <div class="skill-tools">English • Portuguese • Outlook</div>
-            <p class="skill-body">
-              Bilingual in English (fluent) and Portuguese (native), with clear, thoughtful communication and strong
-              cultural awareness. Organised and proactive in planning, balancing multiple responsibilities while meeting
-              deadlines in high‑accuracy environments.
-            </p>
-          </article>
-        </div>
-      </section>
+    <div class="cta">
+      <a class="btn" href="#about">About Me</a>
+      <a class="btn ghost" href="#contact">Contact</a>
+    </div>
 
-      <!-- Projects -->
-      <section id="projects">
-        <div class="section-header">
-          <h2 class="section-title">Selected projects</h2>
-          <p class="section-sub">Practical examples of how I work with data and structure information.</p>
-        </div>
-        <div class="projects-grid">
-          <article class="project-card">
-            <div class="project-tag">Excel • Power BI • Statistics</div>
-            <h3>Sales & trends dashboard</h3>
-            <div class="project-tech">Excel (pivot tables, charts) • Power BI • Correlation & covariance</div>
-            <p class="project-body">
-              Built an end‑to‑end dashboard from raw sales data, cleaning and structuring the dataset, exploring
-              relationships using correlation and covariance, and visualising key trends to support decision‑making.
-            </p>
-          </article>
-
-          <article class="project-card">
-            <div class="project-tag">Sage • Excel</div>
-            <h3>Customer accounts & reconciliations</h3>
-            <div class="project-tech">Sage • Excel formulas • Data validation</div>
-            <p class="project-body">
-              Managed customer accounts and reconciled payments, validating data and resolving discrepancies to maintain
-              accurate ledgers. Used Excel to track, check, and summarise financial information for reporting.
-            </p>
-          </article>
-
-          <article class="project-card">
-            <div class="project-tag">Python • VS Code • GitHub</div>
-            <h3>Data cleaning & portfolio scripts</h3>
-            <div class="project-tech">Python • VS Code • GitHub</div>
-            <p class="project-body">
-              Practised writing Python scripts in VS Code to clean and transform datasets, committing work to GitHub as
-              part of a growing portfolio that demonstrates my progress and learning journey.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact">
-        <div class="section-header">
-          <h2 class="section-title">Get in touch</h2>
-          <p class="section-sub">Open to data & analytics opportunities, apprenticeships, and entry‑level roles.</p>
-        </div>
-        <div class="contact-card">
-          <div class="contact-grid">
-            <div class="contact-text">
-              <p>
-                If you’re looking for someone who combines financial accuracy with a data‑driven mindset, I’d love to
-                connect. I’m especially interested in roles where I can grow, contribute to reliable reporting, and
-                support better decisions with clean, well‑structured data.
-              </p>
-              <p style="margin-top:6px;">
-                <strong>Email:</strong> <span>your.email@example.com</span><br />
-                <strong>GitHub:</strong> <span>github.com/DulceArsenio</span><br />
-                <strong>LinkedIn:</strong> <span>linkedin.com/in/your‑profile</span>
-              </p>
-            </div>
-            <form>
-              <div>
-                <label for="name">Name</label>
-                <input id="name" type="text" placeholder="Your name" />
-              </div>
-              <div>
-                <label for="email">Email</label>
-                <input id="email" type="email" placeholder="you@example.com" />
-              </div>
-              <div>
-                <label for="message">Message</label>
-                <textarea id="message" placeholder="Tell me a bit about your project or opportunity..."></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary" style="justify-content:center;margin-top:4px;">
-                Send message
-              </button>
-              <p class="contact-note">
-                This is a static portfolio — you can replace this form with a real service (e.g. Formspree, Netlify
-                Forms, or a custom backend) when you’re ready.
-              </p>
-            </form>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div>© <span id="year"></span> Dulce Arsenio — Data & Analytics</div>
-      <div class="footer-links">
-        <a href="#top">Back to top</a>
-        <a href="https://github.com/DulceArsenio" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-      </div>
-    </footer>
+    <ul class="metrics">
+      <li><strong>Excel</strong> dashboards</li>
+      <li><strong>Power BI</strong> visualisation</li>
+      <li><strong>Sage</strong> reconciliations</li>
+      <li><strong>Python</strong> data cleaning</li>
+    </ul>
   </div>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <div class="hero-art fade-in">
+    <div class="orb"></div>
+    <img src="Screenshot 2026-05-27 234833.png" alt="Profile photo of Dulce" style="
+      width:220px;height:220px;border-radius:50%;object-fit:cover;margin:auto;"/>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section about panel fade-in">
+  <h2>Personal Statement</h2>
+
+  <p>
+    My professional foundation is in accounting and invoicing administration, where I managed customer accounts,
+    reconciled payments, and maintained financial accuracy using Sage and Excel. This experience strengthened my
+    analytical discipline, precision, and understanding of how reliable data supports sound financial decisions.
+  </p>
+
+  <p>
+    Through my current training with Generation, I am advancing these skills into data analysis — learning to clean,
+    model, and interpret data using Excel and Power BI to uncover insights that drive efficiency and improvement.
+    I bring a structured, dependable approach shaped by real‑world financial responsibility and technical proficiency.
+  </p>
+
+  <p>
+    My goal is to contribute to a data‑driven environment by combining my financial background, technical proficiency,
+    and analytical mindset to deliver meaningful insights and continuous progress.
+  </p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section fade-in">
+  <h2>Key Skills</h2>
+
+  <div class="panel" style="margin-top:20px;">
+    <p><strong>Detail‑orientated data analysis and reporting (Excel, Sage, Power BI)</strong> — Careful and methodical in cleaning, analysing, and visualising data.</p>
+
+    <p><strong>Accurate transaction processing and reconciliations (Sage, Excel)</strong> — Meticulous validation of financial data and dependable record‑keeping.</p>
+
+    <p><strong>Exceptional attention to detail and accuracy</strong> — Strong ability to spot errors quickly and maintain high standards.</p>
+
+    <p><strong>Analytical and logical problem‑solving (Excel, Python)</strong> — Structured approach to resolving discrepancies and improving processes.</p>
+
+    <p><strong>Clear and confident communication</strong> — Professional communication with managers, accountants, and customers.</p>
+
+    <p><strong>Curious and eager to learn</strong> — Growth mindset aligned with NatWest’s values.</p>
+
+    <p><strong>Reliable time management</strong> — Organised and proactive planning in fast‑paced environments.</p>
+
+    <p><strong>Bilingual: English & Portuguese</strong></p>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section fade-in">
+  <h2>Experience & Projects</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Invoicing Administrator — Kingdom Services Group</h3>
+      <p class="stack">May 2025 – Sept 2025 • Newton‑le‑Willows</p>
+      <p>
+        Delivered high‑volume invoice processing (500–600 Tesla invoices in 5 days), resolved discrepancies,
+        maintained accurate financial records, and supported month‑end close. Offered a permanent role within
+        three weeks due to accuracy, initiative, and reliability.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Generation Data Analytics Pre‑Apprenticeship</h3>
+      <p class="stack">April – June 2026 • Online</p>
+      <p>
+        Excel, Power BI, Python, VS Code, GitHub, correlation, covariance, data validation, teamwork,
+        communication, growth mindset, and real‑world analytical projects.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Two‑Week Work Placement — Invoicing Administration</h3>
+      <p class="stack">May 2025 • Kingdom Services Group</p>
+      <p>
+        Supported customer accounts, validated transactions, and maintained accurate audit documentation.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- INTERESTS -->
+<section class="section panel fade-in">
+  <h2>Interests</h2>
+  <p>
+    I apply analytical and commercial thinking beyond work. Collecting and reselling figurines allows me to use
+    market research, pricing analysis, and trend tracking to optimise sales. Gardening and exploring world cuisines
+    strengthen curiosity and process improvement, while travelling enhances adaptability and cultural awareness.
+    I also enjoy strategy and puzzle‑based games that refine logic, pattern recognition, and precision.
+  </p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section contact-block fade-in">
+  <h2>Contact</h2>
+
+  <form class="contact">
+    <label>
+      Name
+      <input type="text" placeholder="Your name" />
+    </label>
+
+    <label>
+      Email
+      <input type="email" placeholder="you@example.com" />
+    </label>
+
+    <label>
+      Message
+      <textarea placeholder="Tell me about your project or opportunity..."></textarea>
+    </label>
+
+    <button class="btn" type="submit">Send Message</button>
+  </form>
+
+  <div class="socials">
+    <a href="https://github.com/DulceArsenio" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/dulce-arsenio-650777225" target="_blank">LinkedIn</a>
+  </div>
+</section>
+
+<footer class="footer">
+  © <span id="year"></span> Dulce Arsenio — Data Analyst
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+  // Year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Sidebar toggle
+  const sidebar = document.getElementById("sidebar");
+  const toggle = document.getElementById("sidebarToggle");
+  toggle.addEventListener("click", () => {
+    sidebar.style.left = sidebar.style.left === "0px" ? "-200px" : "0px";
+  });
+
+  // Dark/Light mode
+  const themeToggle = document.getElementById("themeToggle");
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+    themeToggle.textContent = document.body.classList.contains("light-mode") ? "🌞" : "🌙";
+  });
+</script>
+
 </body>
 </html>
