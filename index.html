@@ -1,103 +1,15 @@
-<main id="home" class="hero">
-  <div class="hero-text">
-    <p class="eyebrow">Aspiring Data Analyst • Finance & Invoicing Ops</p>
-    <h1>Hi, I'm <span class="accent">Dulce Arsenio</span></h1>
-    <p class="subtitle">I turn messy finance data into clear insights and dashboards.</p>
-    <div class="cta">
-      <a class="btn" href="#projects">View Projects</a>
-      <a class="btn ghost" href="#contact">Let's Talk</a>
-    </div>
-    <ul class="metrics">
-      <li><strong>700</strong> invoices in 5 days</li>
-      <li><strong>SQL + Python</strong> analysis</li>
-      <li><strong>Power BI</strong> dashboards</li>
-    </ul>
-  </div>
-  <div class="hero-art" aria-hidden="true">
-    <div class="glow"></div>
-    <img src="[images.unsplash.com](https://images.unsplash.com/photo-1551281044-8d8d2aa06f72?q=80&w=1200&auto=format&fit=crop)" alt="Abstract analytics" />
-  </div>
-</main>
+Dulce Arsenio — Data Analyst Portfolio :root{ --bg:#0a0b12; --bg2:#0d0f1c; --panel:#101225; --panel2:#0f1122; --text:#eef1f7; --muted:#a7aec7; --purple:#b08cff; --purple-2:#6f51ff; --cyan:#59e1ff; --green:#70ff95; --border:#1b1f3a; --shadow:0 20px 60px rgba(0,0,0,.45); } *{box-sizing:border-box} html,body{height:100%} body{ margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; color:var(--text); background: radial-gradient(1200px 600px at 85% -10%, rgba(176,140,255,.22), transparent 60%), radial-gradient(800px 500px at -10% 20%, rgba(89,225,255,.12), transparent 60%), linear-gradient(180deg, var(--bg), var(--bg2) 60%, #080914); } a{color:var(--text);text-decoration:none} h1,h2,h3{margin:0 0 12px;line-height:1.1} .section{padding:80px 20px;max-width:1100px;margin:0 auto} .container{max-width:1100px;margin:0 auto} /* Nav */ .nav{ position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px; padding:16px 20px;border-bottom:1px solid var(--border); background:rgba(10,11,18,.65);backdrop-filter:blur(10px); } .brand{font-weight:800;letter-spacing:.3px} .nav nav{display:flex;gap:22px;align-items:center} .nav a:hover{color:var(--purple)} .btn{ display:inline-block;padding:10px 16px;border-radius:999px;font-weight:700;color:#0b0b12; background:linear-gradient(135deg,var(--purple),var(--purple-2)); box-shadow:0 10px 28px rgba(176,140,255,.28); } .btn.ghost{background:transparent;border:1px solid #2a2e55;color:var(--text)} .hamburger{display:none;width:36px;height:36px;border-radius:10px;border:1px solid #2a2e55;background:linear-gradient(180deg,#141739,#0b0c18);position:relative} .hamburger:before,.hamburger:after{content:"";position:absolute;left:8px;right:8px;height:2px;background:#ccd2ea;border-radius:2px} .hamburger:before{top:11px}.hamburger:after{bottom:11px}
+/* Hero */ .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:42px;align-items:center;padding:96px 20px;max-width:1100px;margin:0 auto} .eyebrow{color:var(--cyan);letter-spacing:.5px;text-transform:uppercase;font-size:12px;font-weight:700} .subtitle{color:var(--muted);margin:6px 0 18px} .cta{display:flex;gap:12px;margin:10px 0 18px} .metrics{display:flex;flex-wrap:wrap;gap:18px;padding:0;margin:0;list-style:none;color:var(--muted)} .metrics strong{color:var(--purple)} .accent{color:var(--purple)} .hero-art{ position:relative;border-radius:18px;overflow:hidden;background:linear-gradient(180deg,var(--panel),var(--panel2)); border:1px solid var(--border); min-height:320px; box-shadow:var(--shadow); } .hero-art .orb{position:absolute;inset:-35%; background: radial-gradient(380px 240px at 70% 30%, rgba(176,140,255,.45), transparent 60%), radial-gradient(260px 180px at 25% 70%, rgba(89,225,255,.25), transparent 60%); filter:blur(24px)} .hero-art img{width:100%;height:100%;object-fit:cover;opacity:.85;mix-blend:screen}
 
-<section id="about" class="section about">
-  <h2>About Me</h2>
-  <p>I’m Dulce, a data analytics apprentice-in-training with a finance background as an invoicing admin. I love building clean pipelines, clear dashboards, and concise case studies that help stakeholders decide faster.</p>
-</section>
+/* Sections */ .panel{background:linear-gradient(180deg,#0f1228,#0d1023);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:var(--shadow)} .about{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:linear-gradient(180deg,rgba(176,140,255,.07),transparent)} .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px} .kpi{padding:14px 16px;border-radius:14px;background:#0f1124;border:1px solid #1a1e3a} .kpi b{color:var(--green)}
 
-<section id="skills" class="section">
-  <h2>Skills</h2>
-  <div class="chips">
-    <span class="chip">Sage</span>
-    <span class="chip">SQL</span>
-    <span class="chip">Python</span>
-    <span class="chip">Power BI</span>
-    <span class="chip">Excel</span>
-  </div>
-  <div class="bars">
-    <div class="bar"><span>Sage</span><i style="--w:88%"></i></div>
-    <div class="bar"><span>SQL</span><i style="--w:85%"></i></div>
-    <div class="bar"><span>Python</span><i style="--w:80%"></i></div>
-    <div class="bar"><span>Power BI</span><i style="--w:82%"></i></div>
-    <div class="bar"><span>Excel</span><i style="--w:90%"></i></div>
-  </div>
-</section>
+/* Skills */ .chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px} .chip{padding:8px 12px;border-radius:999px;background:#191b3c;border:1px solid #242750;color:#e8ebfb} .bars{display:grid;gap:10px;max-width:760px} .bar{background:#0f1126;border:1px solid #1c2144;border-radius:12px;padding:10px 12px} .bar span{color:var(--muted);font-size:14px} .bar i{display:block;height:8px;border-radius:999px;margin-top:8px;width:var(--w,60%); background:linear-gradient(90deg,var(--purple),var(--purple-2)); box-shadow:0 0 0 2px rgba(255,255,255,.02),0 6px 18px rgba(176,140,255,.18) }
 
-<section id="projects" class="section">
-  <h2>Projects</h2>
-  <div class="grid">
-    <article class="card">
-      <h3>Invoice Data Pipeline</h3>
-      <p>Validate, dedupe, and summarize invoices; flag anomalies for review.</p>
-      <div class="stack">Python • Pandas</div>
-      <a class="link" href="#" target="_blank">Repository</a>
-    </article>
-    <article class="card">
-      <h3>Retail Loans Dashboard</h3>
-      <p>Originations, delinquency rate, and balance trends with slicers.</p>
-      <div class="stack">Power BI</div>
-      <a class="link" href="#" target="_blank">Report</a>
-    </article>
-    <article class="card">
-      <h3>SQL Finance Case Study</h3>
-      <p>Monthly active customers, average balance by product, merchant growth.</p>
-      <div class="stack">PostgreSQL/SQLite</div>
-      <a class="link" href="#" target="_blank">SQL</a>
-    </article>
-    <article class="card">
-      <h3>Transactions EDA</h3>
-      <p>Seasonality, spend by category, and fraud flags vs spend.</p>
-      <div class="stack">Python • Seaborn</div>
-      <a class="link" href="#" target="_blank">Notebook</a>
-    </article>
-    <article class="card">
-      <h3>A/B Test: Card Offers</h3>
-      <p>5% groceries cashback vs 2% baseline using CUPED.</p>
-      <div class="stack">Stats • Python</div>
-      <a class="link" href="#" target="_blank">Notebook</a>
-    </article>
-    <article class="card">
-      <h3>Forecasting Monthly Spend</h3>
-      <p>Predict next-month transactions with lightweight models.</p>
-      <div class="stack">Python</div>
-      <a class="link" href="#" target="_blank">Notebook</a>
-    </article>
-  </div>
-</section>
+/* Projects */ .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px} .card{border:1px solid var(--border);border-radius:16px;padding:18px;background:linear-gradient(180deg,#131534,#0e1025);box-shadow:var(--shadow)} .card h3{margin-bottom:6px} .stack{color:var(--muted);font-size:13px;margin-top:6px} .link{display:inline-block;margin-top:10px;color:var(--cyan)}
 
-<section id="contact" class="section contact-block">
-  <h2>Contact</h2>
-  <form class="contact" netlify>
-    <label>Name<input name="name" required></label>
-    <label>Email<input name="email" type="email" required></label>
-    <label>Message<textarea name="message" rows="5" required></textarea></label>
-    <button class="btn" type="submit">Send</button>
-  </form>
-  <div class="socials">
-    <a href="[github.com](https://github.com/your-username)" target="_blank" rel="noreferrer">GitHub</a>
-    <a href="[linkedin.com](https://www.linkedin.com/in/your-link)" target="_blank" rel="noreferrer">LinkedIn</a>
-    <a href="mailto:you@example.com">Email</a>
-  </div>
-</section>
+/* Contact */ .contact-block{border-top:1px solid var(--border)} .contact{display:grid;gap:12px;max-width:520px} .contact label{display:grid;gap:6px;color:var(--muted)} .contact input,.contact textarea{ border:1px solid #252a52;border-radius:12px;padding:12px;background:#0e1022;color:var(--text);outline:0 } .contact input:focus,.contact textarea:focus{border-color:var(--purple);box-shadow:0 0 0 4px rgba(176,140,255,.25)} .socials{margin-top:12px;display:flex;gap:16px;color:var(--muted)} .footer{border-top:1px solid var(--border);color:#96a0c7;padding:28px 20px;text-align:center;margin-top:40px}
 
-<footer class="footer">© <span id="year"></span> Dulce Arsenio • All rights reserved</footer>
-<script type="module" src="/main.js"></script>
+/* Responsive */ @media (max-width:980px){ .hero{grid-template-columns:1fr} .grid{grid-template-columns:1fr 1fr} .nav nav{display:none} .hamburger{display:block} .nav.open nav{ display:flex;position:absolute;right:12px;top:64px;flex-direction:column;gap:10px;padding:12px 14px; background:#0e1022;border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow) } } @media (max-width:560px){ .grid{grid-template-columns:1fr} .section{padding:64px 16px} }
+
+Dulce Arsenio About Skills Projects Contact Download CV [blocked]
+Aspiring Data Analyst • Finance & Invoicing Ops
