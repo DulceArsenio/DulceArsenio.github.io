@@ -3,231 +3,257 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dulce Arsenio — Data Analyst Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Dulce Arsenio — Data Analyst</title>
+
+  <style>
+    :root {
+      --bg: #0a0b12;
+      --panel: #111425;
+      --text: #eef1f7;
+      --muted: #a7aec7;
+      --purple: #b08cff;
+      --cyan: #59e1ff;
+      --green: #70ff95;
+      --border: #1b1f3a;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* SIDEBAR */
+    #sidebar {
+      position: fixed;
+      left: -220px;
+      top: 0;
+      width: 220px;
+      height: 100vh;
+      background: #0d0f1c;
+      border-right: 1px solid var(--border);
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: 0.3s;
+      z-index: 999;
+    }
+
+    #sidebar a {
+      color: var(--purple);
+      font-size: 18px;
+      text-decoration: none;
+    }
+
+    #sidebarToggle {
+      position: fixed;
+      left: 20px;
+      top: 20px;
+      z-index: 1000;
+      background: #141739;
+      border: 1px solid #2a2e55;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 120px 10%;
+      gap: 40px;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      margin: 0;
+    }
+
+    .hero-text .subtitle span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .hero-img img {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--purple);
+      box-shadow: var(--shadow);
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 80px 10%;
+    }
+
+    .panel {
+      background: var(--panel);
+      padding: 30px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #131534;
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+    }
+
+    /* ANIMATION */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* DARK/LIGHT MODE */
+    .light-mode {
+      --bg: #f5f5f5;
+      --panel: #ffffff;
+      --text: #111;
+      --muted: #555;
+      --border: #ddd;
+    }
+
+    #themeToggle {
+      position: fixed;
+      right: 20px;
+      top: 20px;
+      z-index: 1000;
+      background: #141739;
+      border: 1px solid #2a2e55;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- COLLAPSIBLE LEFT SIDEBAR -->
-<aside id="sidebar" class="fade-in" style="
-  position:fixed;left:-200px;top:0;height:100vh;width:200px;
-  background:#0b0c18;border-right:1px solid #1f2937;
-  display:flex;flex-direction:column;align-items:flex-start;
-  padding:20px;gap:20px;z-index:999;transition:0.3s;">
-  
-  <a href="#top" style="color:#a855f7;font-size:18px;">🏠 Home</a>
-  <a href="#about" style="color:#a855f7;font-size:18px;">👤 About</a>
-  <a href="#skills" style="color:#a855f7;font-size:18px;">📊 Skills</a>
-  <a href="#experience" style="color:#a855f7;font-size:18px;">💼 Experience</a>
-  <a href="#contact" style="color:#a855f7;font-size:18px;">✉️ Contact</a>
+<!-- SIDEBAR -->
+<aside id="sidebar">
+  <a href="#hero">🏠 Home</a>
+  <a href="#about">👤 About</a>
+  <a href="#skills">📊 Skills</a>
+  <a href="#experience">💼 Experience</a>
+  <a href="#contact">✉️ Contact</a>
 </aside>
 
-<!-- SIDEBAR TOGGLE BUTTON -->
-<button id="sidebarToggle" style="
-  position:fixed;left:10px;top:20px;z-index:1000;
-  background:#141739;color:#fff;border:1px solid #2a2e55;
-  padding:8px 12px;border-radius:8px;cursor:pointer;">
-  ☰
-</button>
-
-<!-- NAV -->
-<header class="nav fade-in" id="top">
-  <div class="brand">DULCE ARSENIO</div>
-
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <button id="themeToggle" class="btn ghost" style="padding:6px 12px;font-size:14px;">
-    🌙
-  </button>
-</header>
+<button id="sidebarToggle">☰</button>
+<button id="themeToggle">🌙</button>
 
 <!-- HERO -->
-<section class="hero fade-in">
-  <div>
-    <div class="eyebrow">Data Analyst • Excel • Power BI • Python</div>
-
-    <h1>Hi, I’m <span class="accent">Dulce Arsenio</span></h1>
+<section class="hero fade-in" id="hero">
+  <div class="hero-text">
+    <h1>Hi, I'm <span style="color:var(--purple)">Dulce Arsenio</span></h1>
 
     <p class="subtitle">
-      <span style="display:flex;align-items:center;gap:8px;">📍 Manchester</span>
-      <span style="display:flex;align-items:center;gap:8px;margin-top:6px;">
-        ✉️ <a href="mailto:dulcearsenio777@gmail.com">dulcearsenio777@gmail.com</a>
-      </span>
-      <span style="display:flex;align-items:center;gap:8px;margin-top:6px;">
-        📞 +44 7990 697950
-      </span>
-      <span style="display:flex;align-items:center;gap:8px;margin-top:6px;">
-        🔗 <a href="https://www.linkedin.com/in/dulce-arsenio-650777225" target="_blank">LinkedIn</a>
-      </span>
-      <span style="display:flex;align-items:center;gap:8px;margin-top:6px;">
-        💻 <a href="https://github.com/DulceArsenio" target="_blank">GitHub</a>
-      </span>
+      <span>📍 Manchester</span>
+      <span>✉️ <a href="mailto:dulcearsenio777@gmail.com">dulcearsenio777@gmail.com</a></span>
+      <span>📞 +44 7990 697950</span>
+      <span>🔗 <a href="https://www.linkedin.com/in/dulce-arsenio-650777225" target="_blank">LinkedIn</a></span>
+      <span>💻 <a href="https://github.com/DulceArsenio" target="_blank">GitHub</a></span>
     </p>
-
-    <div class="cta">
-      <a class="btn" href="#about">About Me</a>
-      <a class="btn ghost" href="#contact">Contact</a>
-    </div>
-
-    <ul class="metrics">
-      <li><strong>Excel</strong> dashboards</li>
-      <li><strong>Power BI</strong> visualisation</li>
-      <li><strong>Sage</strong> reconciliations</li>
-      <li><strong>Python</strong> data cleaning</li>
-    </ul>
   </div>
 
-  <div class="hero-art fade-in">
-    <div class="orb"></div>
-    <img src="Screenshot 2026-05-27 234833.png" alt="Profile photo of Dulce" style="
-      width:220px;height:220px;border-radius:50%;object-fit:cover;margin:auto;"/>
+  <div class="hero-img">
+    <img src="Screenshot 2026-05-27 234833.png" alt="Profile Photo">
   </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="section about panel fade-in">
-  <h2>Personal Statement</h2>
-
-  <p>
-    My professional foundation is in accounting and invoicing administration, where I managed customer accounts,
-    reconciled payments, and maintained financial accuracy using Sage and Excel. This experience strengthened my
-    analytical discipline, precision, and understanding of how reliable data supports sound financial decisions.
-  </p>
-
-  <p>
-    Through my current training with Generation, I am advancing these skills into data analysis — learning to clean,
-    model, and interpret data using Excel and Power BI to uncover insights that drive efficiency and improvement.
-    I bring a structured, dependable approach shaped by real‑world financial responsibility and technical proficiency.
-  </p>
-
-  <p>
-    My goal is to contribute to a data‑driven environment by combining my financial background, technical proficiency,
-    and analytical mindset to deliver meaningful insights and continuous progress.
-  </p>
+<section class="section fade-in" id="about">
+  <div class="panel">
+    <h2>Personal Statement</h2>
+    <p>My professional foundation is in accounting and invoicing administration, where I managed customer accounts, reconciled payments, and maintained financial accuracy using Sage and Excel...</p>
+  </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="section fade-in">
+<section class="section fade-in" id="skills">
   <h2>Key Skills</h2>
-
-  <div class="panel" style="margin-top:20px;">
-    <p><strong>Detail‑orientated data analysis and reporting (Excel, Sage, Power BI)</strong> — Careful and methodical in cleaning, analysing, and visualising data.</p>
-
-    <p><strong>Accurate transaction processing and reconciliations (Sage, Excel)</strong> — Meticulous validation of financial data and dependable record‑keeping.</p>
-
-    <p><strong>Exceptional attention to detail and accuracy</strong> — Strong ability to spot errors quickly and maintain high standards.</p>
-
-    <p><strong>Analytical and logical problem‑solving (Excel, Python)</strong> — Structured approach to resolving discrepancies and improving processes.</p>
-
-    <p><strong>Clear and confident communication</strong> — Professional communication with managers, accountants, and customers.</p>
-
-    <p><strong>Curious and eager to learn</strong> — Growth mindset aligned with NatWest’s values.</p>
-
-    <p><strong>Reliable time management</strong> — Organised and proactive planning in fast‑paced environments.</p>
-
-    <p><strong>Bilingual: English & Portuguese</strong></p>
+  <div class="panel">
+    <p><strong>Detail‑orientated data analysis</strong> — Excel, Sage, Power BI</p>
+    <p><strong>Accurate transaction processing</strong> — Sage, Excel</p>
+    <p><strong>Attention to detail</strong> — Excel, Power BI</p>
+    <p><strong>Analytical problem‑solving</strong> — Excel, Python</p>
+    <p><strong>Clear communication</strong> — PowerPoint, Teams</p>
+    <p><strong>Curious & eager to learn</strong></p>
+    <p><strong>Time management</strong> — Outlook, Excel</p>
+    <p><strong>Bilingual</strong> — English & Portuguese</p>
   </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience" class="section fade-in">
-  <h2>Experience & Projects</h2>
+<section class="section fade-in" id="experience">
+  <h2>Experience</h2>
 
   <div class="grid">
-
     <div class="card">
       <h3>Invoicing Administrator — Kingdom Services Group</h3>
-      <p class="stack">May 2025 – Sept 2025 • Newton‑le‑Willows</p>
-      <p>
-        Delivered high‑volume invoice processing (500–600 Tesla invoices in 5 days), resolved discrepancies,
-        maintained accurate financial records, and supported month‑end close. Offered a permanent role within
-        three weeks due to accuracy, initiative, and reliability.
-      </p>
+      <p>Delivered 500–600 Tesla invoices in 5 days...</p>
     </div>
 
     <div class="card">
-      <h3>Generation Data Analytics Pre‑Apprenticeship</h3>
-      <p class="stack">April – June 2026 • Online</p>
-      <p>
-        Excel, Power BI, Python, VS Code, GitHub, correlation, covariance, data validation, teamwork,
-        communication, growth mindset, and real‑world analytical projects.
-      </p>
+      <h3>Generation Data Analytics Programme</h3>
+      <p>Excel, Power BI, Python, GitHub, VS Code...</p>
     </div>
 
     <div class="card">
-      <h3>Two‑Week Work Placement — Invoicing Administration</h3>
-      <p class="stack">May 2025 • Kingdom Services Group</p>
-      <p>
-        Supported customer accounts, validated transactions, and maintained accurate audit documentation.
-      </p>
+      <h3>Work Placement — Invoicing Administration</h3>
+      <p>Supported customer accounts, validated transactions...</p>
     </div>
-
   </div>
-</section>
-
-<!-- INTERESTS -->
-<section class="section panel fade-in">
-  <h2>Interests</h2>
-  <p>
-    I apply analytical and commercial thinking beyond work. Collecting and reselling figurines allows me to use
-    market research, pricing analysis, and trend tracking to optimise sales. Gardening and exploring world cuisines
-    strengthen curiosity and process improvement, while travelling enhances adaptability and cultural awareness.
-    I also enjoy strategy and puzzle‑based games that refine logic, pattern recognition, and precision.
-  </p>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="section contact-block fade-in">
+<section class="section fade-in" id="contact">
   <h2>Contact</h2>
-
-  <form class="contact">
-    <label>
-      Name
-      <input type="text" placeholder="Your name" />
-    </label>
-
-    <label>
-      Email
-      <input type="email" placeholder="you@example.com" />
-    </label>
-
-    <label>
-      Message
-      <textarea placeholder="Tell me about your project or opportunity..."></textarea>
-    </label>
-
-    <button class="btn" type="submit">Send Message</button>
-  </form>
-
-  <div class="socials">
-    <a href="https://github.com/DulceArsenio" target="_blank">GitHub</a>
-    <a href="https://www.linkedin.com/in/dulce-arsenio-650777225" target="_blank">LinkedIn</a>
+  <div class="panel">
+    <p>Email: <a href="mailto:dulcearsenio777@gmail.com">dulcearsenio777@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/dulce-arsenio-650777225">Profile</a></p>
+    <p>GitHub: <a href="https://github.com/DulceArsenio">Portfolio</a></p>
   </div>
 </section>
 
-<footer class="footer">
-  © <span id="year"></span> Dulce Arsenio — Data Analyst
-</footer>
-
-<!-- SCRIPTS -->
 <script>
-  // Year
-  document.getElementById("year").textContent = new Date().getFullYear();
-
   // Sidebar toggle
   const sidebar = document.getElementById("sidebar");
   const toggle = document.getElementById("sidebarToggle");
   toggle.addEventListener("click", () => {
-    sidebar.style.left = sidebar.style.left === "0px" ? "-200px" : "0px";
+    sidebar.style.left = sidebar.style.left === "0px" ? "-220px" : "0px";
   });
 
-  // Dark/Light mode
+  // Dark mode
   const themeToggle = document.getElementById("themeToggle");
   themeToggle.addEventListener("click", () => {
     document.body.classList.toggle("light-mode");
